@@ -1,0 +1,135 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: 'Poppins', sans-serif;
+}
+
+/* ===== BACKGROUND ===== */
+body {
+  background: url("sist-campus.jpg") no-repeat center center fixed;
+  background-size: cover;
+  min-height: 100vh;
+}
+
+/* ===== NAVBAR ===== */
+.navbar {
+  background: rgba(0, 33, 71, 0.85);
+  padding: 10px 50px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  backdrop-filter: blur(10px);
+}
+
+/* LOGO AREA */
+.logo-area {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  color: white;
+  font-size: 20px;
+  font-weight: 600;
+}
+
+/* 🔹 FIXED LOGO SIZE (SMALL & EQUAL) */
+.logo-area img {
+  width: 32px;
+  height: 32px;
+  object-fit: contain;
+}
+
+/* NAV LINKS */
+.nav-links {
+  list-style: none;
+  display: flex;
+  gap: 28px;
+}
+
+.nav-links li {
+  color: white;
+  cursor: pointer;
+  position: relative;
+  font-size: 14px;
+}
+
+.nav-links li::after {
+  content: '';
+  width: 0%;
+  height: 2px;
+  background: #00eaff;
+  position: absolute;
+  bottom: -5px;
+  left: 0;
+  transition: 0.3s;
+}
+
+.nav-links li:hover::after {
+  width: 100%;
+}
+
+/* ===== LOGIN SECTION ===== */
+.login-section {
+  height: calc(100vh - 70px);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+/* LOGIN BOX */
+.login-box {
+  width: 420px;
+  padding: 35px;
+  background: rgba(255, 255, 255, 0.15);
+  backdrop-filter: blur(18px);
+  border-radius: 22px;
+  text-align: center;
+  color: white;
+  box-shadow: 0 25px 45px rgba(0,0,0,0.5);
+  animation: float 4s ease-in-out infinite;
+}
+
+@keyframes float {
+  0% { transform: translateY(0); }
+  50% { transform: translateY(-10px); }
+  100% { transform: translateY(0); }
+}
+
+.login-box h1 {
+  font-size: 24px;
+  margin-bottom: 6px;
+}
+
+.login-box p {
+  font-size: 14px;
+  opacity: 0.85;
+  margin-bottom: 20px;
+}
+
+.login-box input,
+.login-box select {
+  width: 100%;
+  padding: 13px;
+  margin: 10px 0;
+  border-radius: 12px;
+  border: none;
+  outline: none;
+  font-size: 14px;
+}
+
+.login-box button {
+  width: 100%;
+  padding: 13px;
+  margin-top: 15px;
+  background: #00eaff;
+  color: #002147;
+  font-weight: 600;
+  border: none;
+  border-radius: 12px;
+  cursor: pointer;
+  transition: 0.3s;
+}
+
+.login-box button:hover {
+  background: white;
+}

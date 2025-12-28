@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Counselor | Attendance</title>
+  <link rel="stylesheet" href="attendance.css">
+
+  <style>
+    .search-input {
+      padding: 10px 15px;
+      border-radius: 25px;
+      border: none;
+      outline: none;
+      min-width: 180px;
+      font-size: 14px;
+    }
+  </style>
+</head>
+
+<body>
+
+<div class="page-bg">
+  <div class="glass-box">
+
+    <h1>Counselor Section Attendance</h1>
+    <p class="section-info">Section: IT - A3</p>
+
+    <div class="filters">
+      <input type="text" id="regSearch" class="search-input" placeholder="🔍 Enter Reg No">
+      <button onclick="searchStudent()">Search</button>
+    </div>
+
+    <table id="attendanceTable">
+      <tr>
+        <th>Reg No</th>
+        <th>Name</th>
+        <th>Attendance %</th>
+        <th>Status</th>
+      </tr>
+      <tr>
+        <td>43120155</td>
+        <td>Praveen C</td>
+        <td>95%</td>
+        <td class="good">Regular</td>
+      </tr>
+      <tr>
+        <td>43120141</td>
+        <td>Niresh A</td>
+        <td>70%</td>
+        <td class="bad">Defaulter</td>
+      </tr>
+    </table>
+
+  </div>
+</div>
+
+<script>
+function searchStudent() {
+  const input = document.getElementById("regSearch").value;
+  const rows = document.querySelectorAll("#attendanceTable tr");
+
+  rows.forEach((row, index) => {
+    if (index === 0) return;
+    const regNo = row.cells[0].innerText;
+    row.style.display = regNo.includes(input) ? "" : "none";
+  });
+}
+</script>
+
+</body>
+</html>

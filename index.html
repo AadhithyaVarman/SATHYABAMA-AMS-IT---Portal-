@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>AMS | Attendance Management System</title>
+
+  <!-- Google Font -->
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600&display=swap" rel="stylesheet">
+
+  <!-- CSS -->
+  <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+
+  <!-- ===== NAVBAR ===== -->
+  <nav class="navbar">
+    <div class="logo-area">
+      <img src="sist-logo.png" alt="SIST Logo">
+      <span>SIST IT AMS</span>
+    </div>
+
+    <ul class="nav-links">
+      <li>Home</li>
+      <li>Dashboard</li>
+      <li>Attendance</li>
+      <li>Reports</li>
+      <li>Logout</li>
+    </ul>
+  </nav>
+
+  <!-- ===== LOGIN SECTION ===== -->
+  <section class="login-section">
+    <div class="login-box">
+      <h1>Attendance Management System</h1>
+      <p>IT Department Login Portal</p>
+
+      <form id="loginForm">
+        <input type="text" placeholder="User ID" required>
+        <input type="password" placeholder="Password" required>
+
+        <select id="roleSelect" required>
+          <option value="">Select Role</option>
+          <option value="hod">Head of Department</option>
+          <option value="year">Year Coordinator</option>
+          <option value="counselor">Counselor</option>
+          <option value="admin">Admin</option>
+        </select>
+
+        <button type="submit">Login</button>
+      </form>
+    </div>
+  </section>
+
+  <!-- ===== JAVASCRIPT REDIRECTION ===== -->
+  <script>
+    document.getElementById("loginForm").addEventListener("submit", function(e) {
+      e.preventDefault();
+
+      const role = document.getElementById("roleSelect").value;
+
+      if (role === "hod") {
+        window.location.href = "hod.html";
+      } 
+      else if (role === "year") {
+        window.location.href = "year.html";
+      } 
+      else if (role === "counselor") {
+        window.location.href = "counselor.html";
+      } 
+      else if (role === "admin") {
+        alert("Admin module will be added later");
+      } 
+      else {
+        alert("Please select a role");
+      }
+    });
+  </script>
+
+</body>
+</html>

@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>HOD | Attendance</title>
+  <link rel="stylesheet" href="attendance.css">
+
+  <style>
+    .search-input {
+      padding: 10px 15px;
+      border-radius: 25px;
+      border: none;
+      outline: none;
+      min-width: 180px;
+      font-size: 14px;
+    }
+  </style>
+</head>
+
+<body>
+
+<div class="page-bg">
+  <div class="glass-box">
+
+    <h1>HOD Attendance View</h1>
+
+    <div class="filters">
+      <select>
+        <option>Select Year</option>
+        <option>1st Year</option>
+        <option>2nd Year</option>
+        <option>3rd Year</option>
+        <option>4th Year</option>
+      </select>
+
+      <select>
+        <option>Select Section</option>
+        <option>A1</option>
+        <option>A2</option>
+        <option>A3</option>
+        <option>A4</option>
+        <option>A5</option>
+      </select>
+
+      <input type="text" id="regSearch" class="search-input" placeholder="🔍 Enter Reg No">
+
+      <button onclick="searchStudent()">Search</button>
+    </div>
+
+    <table id="attendanceTable">
+      <tr>
+        <th>Reg No</th>
+        <th>Name</th>
+        <th>Attendance %</th>
+        <th>Status</th>
+      </tr>
+      <tr>
+        <td>43120177</td>
+        <td>Aadhithya Varman</td>
+        <td>92%</td>
+        <td class="good">Regular</td>
+      </tr>
+      <tr>
+        <td>43120142</td>
+        <td>Nishall B.E</td>
+        <td>68%</td>
+        <td class="bad">Defaulter</td>
+      </tr>
+    </table>
+
+  </div>
+</div>
+
+<script>
+function searchStudent() {
+  const input = document.getElementById("regSearch").value;
+  const rows = document.querySelectorAll("#attendanceTable tr");
+
+  rows.forEach((row, index) => {
+    if (index === 0) return; // skip header
+    const regNo = row.cells[0].innerText;
+    row.style.display = regNo.includes(input) ? "" : "none";
+  });
+}
+</script>
+
+</body>
+</html>
