@@ -1,1 +1,1 @@
-# SIST-IT-AMS
+# Sathyabama attendance management system for IT dept 
