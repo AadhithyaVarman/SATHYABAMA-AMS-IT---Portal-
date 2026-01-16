@@ -32,7 +32,7 @@ body {
   font-weight: 600;
 }
 
-/* 🔹 FIXED LOGO SIZE (SMALL & EQUAL) */
+/* 🔹 FIXED LOGO SIZE */
 .logo-area img {
   width: 32px;
   height: 32px;
@@ -47,12 +47,18 @@ body {
 }
 
 .nav-links li {
-  color: white;
-  cursor: pointer;
   position: relative;
   font-size: 14px;
 }
 
+/* KEEP SAME LOOK FOR LINKS */
+.nav-links a {
+  color: white;
+  text-decoration: none;
+  cursor: pointer;
+}
+
+/* UNDERLINE ANIMATION */
 .nav-links li::after {
   content: '';
   width: 0%;

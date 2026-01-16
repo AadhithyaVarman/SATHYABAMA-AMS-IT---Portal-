@@ -1,0 +1,119 @@
+.DashHeader {
+    text-align: center;
+    color: navy;
+    font-weight: 800;
+    font-size: 28px;
+    letter-spacing: 1px;
+    margin: 30px 0;
+    position: relative;
+    animation: fadeSlide 0.8s ease-out;
+}
+
+.DashHeader::after {
+    content: "";
+    display: block;
+    width: 80px;
+    height: 3px;
+    background: linear-gradient(to right, #007bff, navy);
+    margin: 10px auto 0;
+    border-radius: 2px;
+}
+
+@keyframes fadeSlide {
+    from {
+        opacity: 0;
+        transform: translateY(-10px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+body {
+    background: url("./assets/sist-campus.jpg") no-repeat center center fixed;
+    background-size: cover;
+    min-height: 100vh;
+    margin: 0;
+}
+
+.profile-img {
+    width: 40px;
+    height: auto;
+    border-radius: 50px;
+}
+
+.Activity-Btn {
+    position: relative;
+    padding: 40px 24px;
+    border-radius: 12px;
+    background: linear-gradient(to right, #007bff, rgb(1, 87, 149));
+    color: #ddd;
+    font-size: medium;
+    border: 1px solid #ddd;
+    font-weight: bolder;
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+    animation: glowPulse 3s ease-in-out infinite;
+}
+
+@keyframes glowPulse {
+    0% {
+        box-shadow: 0 0 6px rgba(0, 123, 255, 0.25);
+    }
+    50% {
+        box-shadow: 0 0 14px rgba(0, 123, 255, 0.45);
+    }
+    100% {
+        box-shadow: 0 0 6px rgba(0, 123, 255, 0.25);
+    }
+}
+
+.Activity-Btn:hover {
+    transform: translateY(-4px) scale(1.02);
+    box-shadow: 0 0 18px rgba(0, 123, 255, 0.65);
+}
+
+.Activity-Btns {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, 280px);
+    gap: 20px;
+    justify-content: center;
+    margin-top: 30px;
+}
+
+.profile-wrapper {
+    position: relative;
+}
+
+.profile-dropdown {
+    position: absolute;
+    top: 55px;
+    right: 0;
+    background: white;
+    color: #002147;
+    width: 180px;
+    padding: 12px;
+    border-radius: 10px;
+    box-shadow: 0 8px 20px rgba(0, 0, 0, 0.25);
+    z-index: 9999;
+}
+
+.profile-dropdown p {
+    margin: 5px 0;
+    font-size: 14px;
+}
+
+.profile-dropdown .username {
+    font-weight: 600;
+}
+
+.profile-dropdown button {
+    width: 100%;
+    margin-top: 8px;
+    padding: 8px;
+    border: none;
+    background: #002147;
+    color: white;
+    border-radius: 6px;
+    cursor: pointer;
+}

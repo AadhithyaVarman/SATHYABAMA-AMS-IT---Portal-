@@ -1,78 +1,59 @@
 <!DOCTYPE html>
-<html>
+<html lang="en">
 <head>
-  <title>Year Coordinator | Attendance</title>
-  <link rel="stylesheet" href="attendance.css">
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Year Coordinator | Attendance</title>
+<link rel="stylesheet" href="attendance.css">
 
-  <style>
-    .search-input {
-      padding: 10px 15px;
-      border-radius: 25px;
-      border: none;
-      outline: none;
-      min-width: 180px;
-      font-size: 14px;
-    }
-  </style>
+<style>
+.search-input{padding:12px 18px;border-radius:30px;border:none;}
+.filters{display:flex;gap:15px;flex-wrap:wrap;}
+.status-good{color:#00ff9d;font-weight:600;}
+.status-bad{color:#ff5c5c;font-weight:600;}
+</style>
 </head>
 
 <body>
-
 <div class="page-bg">
-  <div class="glass-box">
+<div class="glass-box">
 
-    <h1>Year Coordinator Attendance</h1>
+<h1>Year Coordinator Attendance</h1>
 
-    <div class="filters">
-      <select>
-        <option>Select Section</option>
-        <option>A1</option>
-        <option>A2</option>
-        <option>A3</option>
-        <option>A4</option>
-        <option>A5</option>
-      </select>
+<div class="filters">
+  <select>
+    <option>Select Section</option>
+    <option>A1</option><option>A2</option><option>A3</option>
+  </select>
+  <input id="search" class="search-input" placeholder="🔍 Search Reg No">
+</div>
 
-      <input type="text" id="regSearch" class="search-input" placeholder="🔍 Enter Reg No">
+<table id="table">
+<tr>
+<th>Reg No</th><th>Name</th><th>Attendance %</th><th>Status</th>
+</tr>
+<tr><td>43120126</td><td>Mohammed Imran</td><td>88</td><td></td></tr>
+<tr><td>43120158</td><td>Praveen M</td><td>72</td><td></td></tr>
+</table>
 
-      <button onclick="searchStudent()">Search</button>
-    </div>
-
-    <table id="attendanceTable">
-      <tr>
-        <th>Reg No</th>
-        <th>Name</th>
-        <th>Attendance %</th>
-        <th>Status</th>
-      </tr>
-      <tr>
-        <td>43120126</td>
-        <td>Mohammed Imran N</td>
-        <td>88%</td>
-        <td class="good">Regular</td>
-      </tr>
-      <tr>
-        <td>43120158</td>
-        <td>Praveen M</td>
-        <td>72%</td>
-        <td class="bad">Defaulter</td>
-      </tr>
-    </table>
-
-  </div>
+</div>
 </div>
 
 <script>
-function searchStudent() {
-  const input = document.getElementById("regSearch").value;
-  const rows = document.querySelectorAll("#attendanceTable tr");
+const rows=document.querySelectorAll("#table tr");
+rows.forEach((r,i)=>{
+ if(i===0) return;
+ let p=parseInt(r.cells[2].innerText);
+ r.cells[3].innerText=p>=75?"Regular":"Defaulter";
+ r.cells[3].className=p>=75?"status-good":"status-bad";
+});
 
-  rows.forEach((row, index) => {
-    if (index === 0) return;
-    const regNo = row.cells[0].innerText;
-    row.style.display = regNo.includes(input) ? "" : "none";
-  });
-}
+search.addEventListener("keyup",()=>{
+ rows.forEach((r,i)=>{
+  if(i===0) return;
+  r.style.display=r.cells[0].innerText.includes(search.value)?"":"none";
+ });
+});
 </script>
 
 </body>

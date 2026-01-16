@@ -1,70 +1,91 @@
 <!DOCTYPE html>
-<html>
+<html lang="en">
 <head>
-  <title>Counselor | Attendance</title>
-  <link rel="stylesheet" href="attendance.css">
-
-  <style>
-    .search-input {
-      padding: 10px 15px;
-      border-radius: 25px;
-      border: none;
-      outline: none;
-      min-width: 180px;
-      font-size: 14px;
-    }
-  </style>
+  <meta charset="UTF-8">
+  <title>Counselor Attendance</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="stylesheet" href="counselor.css">
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&display=swap" rel="stylesheet">
 </head>
 
 <body>
 
-<div class="page-bg">
-  <div class="glass-box">
+<div class="container">
 
-    <h1>Counselor Section Attendance</h1>
-    <p class="section-info">Section: IT - A3</p>
-
-    <div class="filters">
-      <input type="text" id="regSearch" class="search-input" placeholder="🔍 Enter Reg No">
-      <button onclick="searchStudent()">Search</button>
+  <header>
+    <div>
+      <h1>Counselor Attendance</h1>
+      <span class="badge">IT – A3</span>
     </div>
 
-    <table id="attendanceTable">
-      <tr>
-        <th>Reg No</th>
-        <th>Name</th>
-        <th>Attendance %</th>
-        <th>Status</th>
-      </tr>
-      <tr>
-        <td>43120155</td>
-        <td>Praveen C</td>
-        <td>95%</td>
-        <td class="good">Regular</td>
-      </tr>
-      <tr>
-        <td>43120141</td>
-        <td>Niresh A</td>
-        <td>70%</td>
-        <td class="bad">Defaulter</td>
-      </tr>
-    </table>
+    <div class="actions">
+      <input type="date" id="datePicker">
+      <button id="addBtn">+ Add Student</button>
+      <button id="removeBtn">− Remove</button>
+    </div>
+  </header>
 
+  <div class="search-box">
+    <span>🔍</span>
+    <input id="searchInput" placeholder="Search Register Number">
+  </div>
+
+  <div class="table">
+    <div class="head">
+      <span>Reg No</span>
+      <span>Name</span>
+      <span>%</span>
+      <span>Status</span>
+      <span>Date</span>
+      <span>Attendance</span>
+      <span>Email</span>
+      <span>SMS</span>
+    </div>
+
+    <div id="tableBody">
+
+      <!-- ROW TEMPLATE -->
+      <div class="row" data-reg="43120155">
+        <span class="reg">43120155</span>
+        <span>Praveen C</span>
+        <span>95</span>
+        <span class="ok">Regular</span>
+        <span class="date-col"></span>
+
+        <div class="attendance">
+          <div class="check present">P</div>
+          <div class="check absent">A</div>
+        </div>
+
+        <div class="center"><button class="action-btn email">Send</button></div>
+        <div class="center"><button class="action-btn sms">Send</button></div>
+      </div>
+
+      <div class="row" data-reg="43120141">
+        <span class="reg">43120141</span>
+        <span>Niresh A</span>
+        <span>70</span>
+        <span class="bad">Defaulter</span>
+        <span class="date-col"></span>
+
+        <div class="attendance">
+          <div class="check present">P</div>
+          <div class="check absent">A</div>
+        </div>
+
+        <div class="center"><button class="action-btn email">Send</button></div>
+        <div class="center"><button class="action-btn sms">Send</button></div>
+      </div>
+
+    </div>
   </div>
 </div>
 
-<script>
-function searchStudent() {
-  const input = document.getElementById("regSearch").value;
-  const rows = document.querySelectorAll("#attendanceTable tr");
+<div id="overlay"></div>
 
-  rows.forEach((row, index) => {
-    if (index === 0) return;
-    const regNo = row.cells[0].innerText;
-    row.style.display = regNo.includes(input) ? "" : "none";
-  });
-}
-</script>
+<div class="modal" id="addModal">...</div>
+<div class="modal" id="removeModal">...</div>
 
+<script src="counselor.js"></script>
 </body>
 </html>
