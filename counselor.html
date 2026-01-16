@@ -19,7 +19,6 @@
     </div>
 
     <div class="actions">
-      <input type="date" id="datePicker">
       <button id="addBtn">+ Add Student</button>
       <button id="removeBtn">− Remove</button>
     </div>
@@ -36,7 +35,6 @@
       <span>Name</span>
       <span>%</span>
       <span>Status</span>
-      <span>Date</span>
       <span>Attendance</span>
       <span>Email</span>
       <span>SMS</span>
@@ -44,37 +42,42 @@
 
     <div id="tableBody">
 
-      <!-- ROW TEMPLATE -->
-      <div class="row" data-reg="43120155">
+      <div class="row">
         <span class="reg">43120155</span>
         <span>Praveen C</span>
         <span>95</span>
         <span class="ok">Regular</span>
-        <span class="date-col"></span>
 
         <div class="attendance">
           <div class="check present">P</div>
           <div class="check absent">A</div>
         </div>
 
-        <div class="center"><button class="action-btn email">Send</button></div>
-        <div class="center"><button class="action-btn sms">Send</button></div>
+        <div class="center">
+          <button class="action-btn email">Send</button>
+        </div>
+        <div class="center">
+          <button class="action-btn sms">Send</button>
+        </div>
       </div>
 
-      <div class="row" data-reg="43120141">
+      <div class="row">
         <span class="reg">43120141</span>
         <span>Niresh A</span>
         <span>70</span>
         <span class="bad">Defaulter</span>
-        <span class="date-col"></span>
 
         <div class="attendance">
           <div class="check present">P</div>
           <div class="check absent">A</div>
         </div>
 
-        <div class="center"><button class="action-btn email">Send</button></div>
-        <div class="center"><button class="action-btn sms">Send</button></div>
+        <div class="center">
+          <button class="action-btn email">Send</button>
+        </div>
+        <div class="center">
+          <button class="action-btn sms">Send</button>
+        </div>
       </div>
 
     </div>
@@ -83,8 +86,27 @@
 
 <div id="overlay"></div>
 
-<div class="modal" id="addModal">...</div>
-<div class="modal" id="removeModal">...</div>
+<div class="modal" id="addModal">
+  <h2>Add Student</h2>
+  <input id="addReg" placeholder="Register Number">
+  <input id="addName" placeholder="Student Name">
+  <input id="addPercent" placeholder="Attendance %">
+
+  <div class="modal-actions">
+    <button class="btn cancel">Cancel</button>
+    <button class="btn primary">Add</button>
+  </div>
+</div>
+
+<div class="modal" id="removeModal">
+  <h2>Remove Student</h2>
+  <input id="removeReg" placeholder="Register Number">
+
+  <div class="modal-actions">
+    <button class="btn cancel">Cancel</button>
+    <button class="btn danger">Remove</button>
+  </div>
+</div>
 
 <script src="counselor.js"></script>
 </body>
